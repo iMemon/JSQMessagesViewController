@@ -1,16 +1,13 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+# :warning: Deprecated :warning:
+
+This library is deprecated. Please read [my blog post](http://www.jessesquires.com/blog/officially-deprecating-jsqmessagesviewcontroller/) for details.
+
+
 ![JSQMessagesViewController banner](https://raw.githubusercontent.com/jessesquires/JSQMessagesViewController/develop/Assets/jsq_messages_banner.png)
 
 [![Build Status](https://secure.travis-ci.org/jessesquires/JSQMessagesViewController.svg)](https://travis-ci.org/jessesquires/JSQMessagesViewController) [![Version Status](https://img.shields.io/cocoapods/v/JSQMessagesViewController.svg)][podLink] [![license MIT](https://img.shields.io/cocoapods/l/JSQMessagesViewController.svg)][mitLink] [![codecov](https://codecov.io/gh/jessesquires/JSQMessagesViewController/branch/develop/graph/badge.svg)](https://codecov.io/gh/jessesquires/JSQMessagesViewController) [![Platform](https://img.shields.io/cocoapods/p/JSQMessagesViewController.svg)][docsLink]
-
-------------------------
-
-## :warning: Announcement :warning:
-
-Development on version `8.0` of the library is underway. Learn more at [#1216](https://github.com/jessesquires/JSQMessagesViewController/issues/1216) and [#1336](https://github.com/jessesquires/JSQMessagesViewController/issues/1336).
-
-Submit work for `v8.0` to the [`develop`](https://github.com/jessesquires/JSQMessagesViewController/tree/develop) branch.
-
-Submit fixes for `v7.3.x` to the [`release_7.3`](https://github.com/jessesquires/JSQMessagesViewController/tree/release_7.3) branch.
 
 ------------------------
 
@@ -22,11 +19,11 @@ Submit fixes for `v7.3.x` to the [`release_7.3`](https://github.com/jessesquires
 
 ## Features
 
-See the [website](http://www.jessesquires.com/JSQMessagesViewController/) for the list of features.
+See the [website](http://jessesquires.github.io/JSQMessagesViewController) for the list of features.
 
 ## Design Goals
 
-- Closely mimic [iMessage](http://www.apple.com/ios/messages/) style and behavior
+- Closely mimic the [iOS Messages](http://www.apple.com/ios/messages/) style and behavior
 - [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) design
 - Easy customization and extension for clients
 
@@ -49,6 +46,9 @@ pod 'JSQMessagesViewController'
 
 # Latest on develop
 pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController.git', :branch => 'develop'
+
+# For version 5.3.2
+pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController', :branch => 'version_5.3.2_patch'
 ````
 
 ## Getting Started
@@ -73,15 +73,16 @@ Read the docs, [available here][docsLink] via [@CocoaDocs](https://twitter.com/C
 - Jesse Squires ([**@jesse_squires**](https://twitter.com/jesse_squires))
 - Harlan Haskans ([**@harlanhaskins**](https://github.com/harlanhaskins))
 - Eli Burke ([**@eliburke**](https://github.com/eliburke))
-- Sebastian Ludwig ([**@sebastianludwig**](https://github.com/sebastianludwig))
-- Lucas Huang ([**@Lucashuang0802**](https://github.com/Lucashuang0802))
-- Dan Leonard ([**@macmedan**](https://github.com/macmedan))
 
 ## Contributing
 
 Please follow these sweet [contribution guidelines](https://github.com/jessesquires/JSQMessagesViewController/blob/develop/.github/CONTRIBUTING.md).
 
 > **Interested in becoming a core contributor with push access? See our [onboarding guide](https://github.com/jessesquires/JSQMessagesViewController/blob/develop/Documentation/contributor_onboarding.md) for details.**
+
+## Donate
+
+Support the development of this **free** library! **[Donate](https://cash.me/$jsq)** via [Square Cash](https://cash.me/).
 
 ## Credits
 
@@ -91,7 +92,7 @@ Please follow these sweet [contribution guidelines](https://github.com/jessesqui
 
 ## Apps using this library
 
-According to [CocoaPods stats](https://cocoapods.org/pods/JSQMessagesViewController), over **10,000 apps** are using `JSQMessagesViewController`. [Here are the ones](https://github.com/jessesquires/JSQMessagesViewController/blob/develop/Documentation/apps_using_this_library.md) that we know about. Please submit a [pull request](https://github.com/jessesquires/JSQMessagesViewController/compare) to add your app! :smile:
+According to [CocoaPods stats](https://cocoapods.org/pods/JSQMessagesViewController), over **36,000 apps** are using `JSQMessagesViewController`. [Here are the ones](https://github.com/jessesquires/JSQMessagesViewController/blob/develop/Documentation/apps_using_this_library.md) that we know about. Please submit a [pull request](https://github.com/jessesquires/JSQMessagesViewController/compare) to add your app! :smile:
 
 ## License
 

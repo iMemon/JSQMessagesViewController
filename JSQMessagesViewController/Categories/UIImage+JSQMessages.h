@@ -18,8 +18,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface UIImage (JSQMessages)
 
 /**
@@ -83,13 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImage *)jsq_defaultPauseImage;
 
-/**
- *  @return The standard share icon image.
- *
- *  @discussion This is the default icon for the message accessory button.
- */
-+ (UIImage *)jsq_shareActionImage;
++ (UIImage *)jsq_bubbleHushSquareTaillessImage;
+
 
 @end
-
-NS_ASSUME_NONNULL_END

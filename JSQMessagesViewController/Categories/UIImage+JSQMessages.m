@@ -104,9 +104,10 @@
 {
     return [UIImage jsq_bubbleImageFromBundleWithName:@"pause"];
 }
-
-+ (UIImage *)jsq_shareActionImage
++ (UIImage *)jsq_bubbleHushSquareTaillessImage
 {
-    return [UIImage jsq_bubbleImageFromBundleWithName:@"share"];
-}
+    return [UIImage jsq_bubbleImageFromBundleWithName:@"hushChatBubble"];
+            }
+
+
 @end

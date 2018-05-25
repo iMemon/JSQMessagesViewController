@@ -116,11 +116,11 @@
     }
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGColorRef newColor = CGColorCreate(colorSpace, newComponents);
-    CGColorSpaceRelease(colorSpace);
+	CGColorRef newColor = CGColorCreate(colorSpace, newComponents);
+	CGColorSpaceRelease(colorSpace);
     
-    UIColor *retColor = [UIColor colorWithCGColor:newColor];
-    CGColorRelease(newColor);
+	UIColor *retColor = [UIColor colorWithCGColor:newColor];
+	CGColorRelease(newColor);
     
     return retColor;
 }
