@@ -41,7 +41,7 @@ See the [website](http://jessesquires.github.io/JSQMessagesViewController) for t
 ### [CocoaPods](https://cocoapods.org/) (recommended)
 
 ````ruby
-# Latest on develop
+# Latest
 pod 'JSQMessagesViewController', :git => 'https://github.com/iMemon/JSQMessagesViewController.git'
 ````
 
