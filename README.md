@@ -38,13 +38,10 @@ This library is deprecated. Please read [my blog post](http://www.jessesquires.c
 
 ````ruby
 # For latest release in cocoapods
-pod 'JSQMessagesViewController'
+pod 'JSQMessagesViewController', :git => 'https://github.com/iMemon/JSQMessagesViewController.git'
 
 # Latest on develop
 pod 'JSQMessagesViewController', :git => 'https://github.com/iMemon/JSQMessagesViewController.git', :branch => 'develop'
-
-# For version 5.3.2
-pod 'JSQMessagesViewController', :git => 'https://github.com/iMemon/JSQMessagesViewController', :branch => 'version_5.3.2_patch'
 ````
 
 ## Getting Started
