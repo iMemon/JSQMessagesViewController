@@ -63,6 +63,7 @@
  *  The object that acts as the delegate of the toolbar.
  */
 @property (weak, nonatomic) id<JSQMessagesInputToolbarDelegate> delegate;
+@property (assign, nonatomic) BOOL isOpen;
 
 /**
  *  Returns the content view of the toolbar. This view contains all subviews of the toolbar.

@@ -21,47 +21,61 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "NSString+JSQMessages.h"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+@implementation UIFont (JSQMessages)
++ (UIFont *)font_ChatScreen_InputTextView
+{
+    return [UIFont fontWithName:@"Montserrat-Bold" size:14.0];
+}
+@end
+@implementation UIColor (JSQMessages)
++ (UIColor *)color_ChatScreen_InputTextView {
+    return UIColorFromRGB(0xA2A2A2);
+}
+@end
 
 
 @implementation JSQMessagesComposerTextView
+@synthesize pasteDelegate;
 
 #pragma mark - Initialization
 
 - (void)jsq_configureTextView
 {
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-
+    
     CGFloat cornerRadius = 6.0f;
-
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.borderWidth = 0.5f;
-    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.layer.cornerRadius = cornerRadius;
-
+    
+    self.backgroundColor = [UIColor clearColor];
+    //    self.layer.borderWidth = 0.5f;
+    //    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    //    self.layer.cornerRadius = cornerRadius;
+    
     self.scrollIndicatorInsets = UIEdgeInsetsMake(cornerRadius, 0.0f, cornerRadius, 0.0f);
-
+    
     self.textContainerInset = UIEdgeInsetsMake(4.0f, 2.0f, 4.0f, 2.0f);
     self.contentInset = UIEdgeInsetsMake(1.0f, 0.0f, 1.0f, 0.0f);
-
+    
     self.scrollEnabled = YES;
     self.scrollsToTop = NO;
     self.userInteractionEnabled = YES;
-
+    
     self.font = [UIFont systemFontOfSize:16.0f];
     self.textColor = [UIColor blackColor];
     self.textAlignment = NSTextAlignmentNatural;
-
+    
     self.contentMode = UIViewContentModeRedraw;
     self.dataDetectorTypes = UIDataDetectorTypeNone;
     self.keyboardAppearance = UIKeyboardAppearanceDefault;
     self.keyboardType = UIKeyboardTypeDefault;
     self.returnKeyType = UIReturnKeyDefault;
-
+    
     self.text = nil;
-
+    
     _placeHolder = nil;
     _placeHolderTextColor = [UIColor lightGrayColor];
-
+    
     [self jsq_addTextViewNotificationObservers];
 }
 
@@ -99,7 +113,7 @@
     if ([placeHolder isEqualToString:_placeHolder]) {
         return;
     }
-
+    
     _placeHolder = [placeHolder copy];
     [self setNeedsDisplay];
 }
@@ -109,7 +123,7 @@
     if ([placeHolderTextColor isEqual:_placeHolderTextColor]) {
         return;
     }
-
+    
     _placeHolderTextColor = placeHolderTextColor;
     [self setNeedsDisplay];
 }
@@ -152,10 +166,10 @@
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-
+    
     if ([self.text length] == 0 && self.placeHolder) {
         [self.placeHolderTextColor set];
-
+        
         [self.placeHolder drawInRect:CGRectInset(rect, 7.0f, 5.0f)
                       withAttributes:[self jsq_placeholderTextAttributes]];
     }
@@ -169,12 +183,12 @@
                                              selector:@selector(jsq_didReceiveTextViewNotification:)
                                                  name:UITextViewTextDidChangeNotification
                                                object:self];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(jsq_didReceiveTextViewNotification:)
                                                  name:UITextViewTextDidBeginEditingNotification
                                                object:self];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(jsq_didReceiveTextViewNotification:)
                                                  name:UITextViewTextDidEndEditingNotification
@@ -186,11 +200,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UITextViewTextDidChangeNotification
                                                   object:self];
-
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UITextViewTextDidBeginEditingNotification
                                                   object:self];
-
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UITextViewTextDidEndEditingNotification
                                                   object:self];
@@ -208,7 +222,7 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     paragraphStyle.alignment = self.textAlignment;
-
+    
     return @{ NSFontAttributeName : self.font,
               NSForegroundColorAttributeName : self.placeHolderTextColor,
               NSParagraphStyleAttributeName : paragraphStyle };

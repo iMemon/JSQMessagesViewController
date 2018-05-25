@@ -1,62 +1,98 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1" customClass="JSQMessagesToolbarContentView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="GjO-bz-qck" customClass="JSQMessagesToolbarContentView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEq-G7-jGt" userLabel="Left button container">
-                    <rect key="frame" x="8" y="6" width="34" height="32"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="8WE-B9-ZlV" userLabel="Left button container">
+                    <rect key="frame" x="8" y="13" width="50" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="0sE-GV-joM"/>
-                        <constraint firstAttribute="width" constant="34" id="eMy-Af-wwH"/>
+                        <constraint firstAttribute="height" constant="50" id="hu6-Q1-HQq"/>
+                        <constraint firstAttribute="width" constant="50" id="tgu-DA-EBt"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myo-1S-Vg1" userLabel="Right button container">
-                    <rect key="frame" x="262" y="6" width="50" height="32"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Qms-R8-wsM" userLabel="Right button container">
+                    <rect key="frame" x="356" y="13" width="50" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="NaR-re-dJ4"/>
-                        <constraint firstAttribute="width" constant="50" id="yde-S9-dHe"/>
+                        <constraint firstAttribute="height" constant="50" id="TZc-ho-fWD"/>
+                        <constraint firstAttribute="width" constant="50" id="aE7-2T-yph"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm4-NT-mvr" customClass="JSQMessagesComposerTextView">
-                    <rect key="frame" x="50" y="7" width="204" height="30"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdb-Vt-XWc" customClass="JSQMessagesComposerTextView">
+                    <rect key="frame" x="66" y="24" width="282" height="28"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="1" green="0.1764705882" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKW-ie-dAM">
+                    <rect key="frame" x="0.0" y="60" width="414" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="EO0-gs-cix"/>
+                    </constraints>
+                    <items/>
+                </toolbar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All videos/images will disappear after 24 hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf4-Yl-X1A">
+                    <rect key="frame" x="8" y="0.5" width="301" height="17.5"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                    <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Myo-1S-Vg1" firstAttribute="leading" secondItem="dm4-NT-mvr" secondAttribute="trailing" constant="8" id="7Ld-5r-Hp3"/>
-                <constraint firstItem="dm4-NT-mvr" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="9Tz-Wq-xIf"/>
-                <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" constant="7" id="CCb-V7-yek"/>
-                <constraint firstAttribute="bottom" secondItem="Myo-1S-Vg1" secondAttribute="bottom" constant="6" id="EaS-Oq-Qp5"/>
-                <constraint firstItem="LEq-G7-jGt" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="8" id="LAU-fo-GJJ"/>
-                <constraint firstAttribute="trailing" secondItem="Myo-1S-Vg1" secondAttribute="trailing" constant="8" id="ds6-61-GNv"/>
-                <constraint firstAttribute="bottom" secondItem="LEq-G7-jGt" secondAttribute="bottom" constant="6" id="oG2-YD-ZZI"/>
-                <constraint firstItem="dm4-NT-mvr" firstAttribute="leading" secondItem="LEq-G7-jGt" secondAttribute="trailing" constant="8" id="owo-gB-gyR"/>
+                <constraint firstItem="Qms-R8-wsM" firstAttribute="leading" secondItem="pdb-Vt-XWc" secondAttribute="trailing" constant="8" id="CwV-o7-yEO"/>
+                <constraint firstItem="pdb-Vt-XWc" firstAttribute="top" secondItem="zf4-Yl-X1A" secondAttribute="bottom" constant="6" id="GmR-a1-Aht"/>
+                <constraint firstItem="8WE-B9-ZlV" firstAttribute="centerY" secondItem="pdb-Vt-XWc" secondAttribute="centerY" id="LOI-Oj-WUX"/>
+                <constraint firstAttribute="bottom" secondItem="pdb-Vt-XWc" secondAttribute="bottom" constant="8" id="RKk-gS-ZpJ"/>
+                <constraint firstItem="pdb-Vt-XWc" firstAttribute="leading" secondItem="8WE-B9-ZlV" secondAttribute="trailing" constant="8" id="VVW-ip-x0Y"/>
+                <constraint firstItem="gKW-ie-dAM" firstAttribute="leading" secondItem="GjO-bz-qck" secondAttribute="leading" id="Vj5-rh-31H"/>
+                <constraint firstAttribute="bottom" secondItem="gKW-ie-dAM" secondAttribute="bottom" id="dNB-x3-CNv"/>
+                <constraint firstItem="8WE-B9-ZlV" firstAttribute="leading" secondItem="GjO-bz-qck" secondAttribute="leading" constant="8" id="fW2-JS-zP7"/>
+                <constraint firstItem="zf4-Yl-X1A" firstAttribute="leading" secondItem="8WE-B9-ZlV" secondAttribute="leading" id="g5B-CS-Cmr"/>
+                <constraint firstItem="Qms-R8-wsM" firstAttribute="centerY" secondItem="pdb-Vt-XWc" secondAttribute="centerY" id="p6v-CK-5Vq"/>
+                <constraint firstAttribute="trailing" secondItem="Qms-R8-wsM" secondAttribute="trailing" constant="8" id="plY-fg-AgH"/>
+                <constraint firstAttribute="trailing" secondItem="gKW-ie-dAM" secondAttribute="trailing" id="pxr-rY-7c8"/>
+                <constraint firstItem="pdb-Vt-XWc" firstAttribute="top" secondItem="GjO-bz-qck" secondAttribute="top" constant="24" id="tCk-bm-ukO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="leftBarButtonContainerView" destination="LEq-G7-jGt" id="F0V-4N-1Mo"/>
-                <outlet property="leftBarButtonContainerViewWidthConstraint" destination="eMy-Af-wwH" id="FI9-F2-2bN"/>
-                <outlet property="leftHorizontalSpacingConstraint" destination="LAU-fo-GJJ" id="X2c-BI-0Q4"/>
-                <outlet property="rightBarButtonContainerView" destination="Myo-1S-Vg1" id="0SR-cw-EkD"/>
-                <outlet property="rightBarButtonContainerViewWidthConstraint" destination="yde-S9-dHe" id="WGu-df-M3L"/>
-                <outlet property="rightHorizontalSpacingConstraint" destination="ds6-61-GNv" id="ZQh-8M-QFs"/>
-                <outlet property="textView" destination="dm4-NT-mvr" id="PFw-HO-oT8"/>
+                <outlet property="bottomToolBar" destination="gKW-ie-dAM" id="5uw-Ez-Zqo"/>
+                <outlet property="constraintBottomToolBarHeight" destination="EO0-gs-cix" id="C1D-vD-Jk8"/>
+                <outlet property="constraintTextViewBottmSpace" destination="RKk-gS-ZpJ" id="OFg-Fm-ZQd"/>
+                <outlet property="lblMessageSelfdestruct" destination="zf4-Yl-X1A" id="txi-Od-Hh8"/>
+                <outlet property="leftBarButtonContainerView" destination="8WE-B9-ZlV" id="mpq-bX-bNX"/>
+                <outlet property="leftBarButtonContainerViewWidthConstraint" destination="tgu-DA-EBt" id="Zls-68-4K4"/>
+                <outlet property="leftHorizontalSpacingConstraint" destination="fW2-JS-zP7" id="fMh-nh-6ia"/>
+                <outlet property="rightBarButtonContainerView" destination="Qms-R8-wsM" id="XhN-PC-nwt"/>
+                <outlet property="rightBarButtonContainerViewWidthConstraint" destination="aE7-2T-yph" id="SSs-7X-BQp"/>
+                <outlet property="rightHorizontalSpacingConstraint" destination="plY-fg-AgH" id="NgZ-sb-Gqg"/>
+                <outlet property="textView" destination="pdb-Vt-XWc" id="ykF-lh-HAD"/>
             </connections>
-            <point key="canvasLocation" x="268" y="548"/>
+            <point key="canvasLocation" x="-243" y="514"/>
         </view>
     </objects>
 </document>

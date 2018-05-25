@@ -42,6 +42,24 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 @dynamic delegate;
 
 #pragma mark - Initialization
+-(void) didMoveToWindow {
+    [super didMoveToWindow];
+    if (@available(iOS 11.0, *)) {
+        if (self.window.safeAreaLayoutGuide != nil) {
+            [[self bottomAnchor] constraintLessThanOrEqualToSystemSpacingBelowAnchor:self.window.safeAreaLayoutGuide.bottomAnchor multiplier:1.0].active = YES;
+        }
+    }
+}
+
+// Workaround for iPhoneX
+//-(void) didMoveToWindow{
+//    [super didMoveToWindow];
+//    if (@available(iOS 11.0, *)) {
+//        if (self.window.safeAreaLayoutGuide != nil) {
+//            [[self.contentView bottomAnchor] constraintLessThanOrEqualToSystemSpacingBelowAnchor:self.window.safeAreaLayoutGuide.bottomAnchor multiplier:1.0].active = YES;
+//        }
+//    }
+//}
 
 - (void)awakeFromNib
 {
@@ -51,8 +69,9 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     self.jsq_isObserving = NO;
     self.sendButtonOnRight = YES;
 
-    self.preferredDefaultHeight = 44.0f;
-    self.maximumHeight = NSNotFound;
+    self.preferredDefaultHeight = 60.0f;
+//    self.preferredDefaultHeight = 84.0;
+    self.maximumHeight = 150.0;
 
     JSQMessagesToolbarContentView *toolbarContentView = [self loadToolbarContentView];
     toolbarContentView.frame = self.frame;
@@ -63,10 +82,10 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 
     [self jsq_addObservers];
 
-    self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
-    self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
+//    self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory customAccessoryButtonItem];
+//    self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory customSendButtonItem];
 
-    [self toggleSendButtonEnabled];
+//    [self toggleSendButtonEnabled];
 }
 
 - (JSQMessagesToolbarContentView *)loadToolbarContentView

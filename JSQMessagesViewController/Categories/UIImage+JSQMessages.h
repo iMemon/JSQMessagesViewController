@@ -81,4 +81,7 @@
  */
 + (UIImage *)jsq_defaultPauseImage;
 
++ (UIImage *)jsq_bubbleHushSquareTaillessImage;
+
+
 @end

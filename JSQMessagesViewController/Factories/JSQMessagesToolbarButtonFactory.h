@@ -26,7 +26,7 @@
 @interface JSQMessagesToolbarButtonFactory : NSObject
 
 /**
- *  Creates and returns a new button that is styled as the default accessory button. 
+ *  Creates and returns a new button that is styled as the default accessory button.
  *  The button has a paper clip icon image and no text.
  *
  *  @return A newly created button.
@@ -34,11 +34,14 @@
 + (UIButton *)defaultAccessoryButtonItem;
 
 /**
- *  Creates and returns a new button that is styled as the default send button. 
+ *  Creates and returns a new button that is styled as the default send button.
  *  The button has title text `@"Send"` and no image.
  *
  *  @return A newly created button.
  */
 + (UIButton *)defaultSendButtonItem;
+
++ (UIButton *)customSendButtonItem;
++ (UIButton *)customAccessoryButtonItem;
 
 @end

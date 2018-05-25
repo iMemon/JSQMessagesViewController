@@ -20,6 +20,45 @@
 
 #import "UIColor+JSQMessages.h"
 
+//==============================//
+
+@interface UIImage (JSQMessagesUIImageResize)
+- (UIImage *)imageByCroppingImageToSize:(CGSize)size;
+@end
+
+@implementation UIImage (JSQMessagesUIImageResize)
+- (UIImage *)imageByCroppingImageToSize:(CGSize)size
+{
+    double newCropWidth, newCropHeight;
+    //=== To crop more efficently =====//
+    if(self.size.width < self.size.height){
+        if (self.size.width < size.width) {
+            newCropWidth = size.width;
+        }
+        else {
+            newCropWidth = self.size.width;
+        }
+        newCropHeight = (newCropWidth * size.height)/size.width;
+    } else {
+        if (self.size.height < size.height) {
+            newCropHeight = size.height;
+        }
+        else {
+            newCropHeight = self.size.height;
+        }
+        newCropWidth = (newCropHeight * size.width)/size.height;
+    }
+    double x = self.size.width/2.0 - newCropWidth/2.0;
+    double y = self.size.height/2.0 - newCropHeight/2.0;
+    CGRect cropRect = CGRectMake(x, y, newCropWidth, newCropHeight);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], cropRect);
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return cropped;
+}
+@end
+
+//==============================//
 
 @implementation JSQMessagesAvatarImageFactory
 
@@ -133,6 +172,9 @@
     NSParameterAssert(diameter > 0);
 
     CGRect frame = CGRectMake(0.0f, 0.0f, diameter, diameter);
+    UIImage * squareImage = [image imageByCroppingImageToSize:frame.size];
+    return squareImage;
+//    UIImage * squareImage = image;
     UIImage *newImage = nil;
 
     UIGraphicsBeginImageContextWithOptions(frame.size, NO, [UIScreen mainScreen].scale);
@@ -141,7 +183,7 @@
 
         UIBezierPath *imgPath = [UIBezierPath bezierPathWithOvalInRect:frame];
         [imgPath addClip];
-        [image drawInRect:frame];
+        [squareImage drawInRect:frame];
 
         if (highlightedColor != nil) {
             CGContextSetFillColorWithColor(context, highlightedColor.CGColor);
@@ -155,5 +197,34 @@
     
     return newImage;
 }
+
+//+ (UIImage *)jsq_circularImage:(UIImage *)image withDiameter:(NSUInteger)diameter highlightedColor:(UIColor *)highlightedColor
+//{
+//    NSParameterAssert(image != nil);
+//    NSParameterAssert(diameter > 0);
+//    diameter = 1;
+//    CGRect frame = CGRectMake(0.0f, 0.0f, diameter, diameter);
+//    UIImage *newImage = nil;
+//    
+//    UIGraphicsBeginImageContextWithOptions(frame.size, NO, [UIScreen mainScreen].scale);
+//    {
+//        CGContextRef context = UIGraphicsGetCurrentContext();
+//        
+//        UIBezierPath *imgPath = [UIBezierPath bezierPathWithOvalInRect:frame];
+//        [imgPath addClip];
+//        [image drawInRect:frame];
+//        
+//        if (highlightedColor != nil) {
+//            CGContextSetFillColorWithColor(context, highlightedColor.CGColor);
+//            CGContextFillEllipseInRect(context, frame);
+//        }
+//        
+//        newImage = UIGraphicsGetImageFromCurrentImageContext();
+//        
+//    }
+//    UIGraphicsEndImageContext();
+//    
+//    return image;
+//}
 
 @end

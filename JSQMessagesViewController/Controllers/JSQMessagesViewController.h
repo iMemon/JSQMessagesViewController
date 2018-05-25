@@ -38,11 +38,15 @@
  *  This view controller is the collection view's data source and delegate.
  */
 @property (weak, nonatomic, readonly) JSQMessagesCollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintToolBarHeight;
+
+@property (nonatomic, assign, readonly) BOOL isAgency;
 
 /**
  *  Returns the input toolbar view object managed by this view controller.
  *  This view controller is the toolbar's delegate.
  */
+
 @property (weak, nonatomic, readonly) JSQMessagesInputToolbar *inputToolbar;
 
 /**
@@ -194,6 +198,8 @@
  *  @return An initialized `JSQMessagesViewController` object if successful, `nil` otherwise.
  */
 + (instancetype)messagesViewController;
+
+- (void)jsq_setToolbarBottomLayoutGuideConstant:(CGFloat)constant;
 
 #pragma mark - Messages view controller
 

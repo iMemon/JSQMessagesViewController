@@ -38,6 +38,7 @@
 #import "UIColor+JSQMessages.h"
 #import "UIDevice+JSQMessages.h"
 #import "NSBundle+JSQMessages.h"
+#import <JSQAppConfig.h>
 
 #import <objc/runtime.h>
 
@@ -165,12 +166,30 @@ JSQMessagesKeyboardControllerDelegate>
     }
 }
 
+#pragma mark - Customize Appearance
+
+- (void)customizeAppearance {
+    JSQAppConfig * config = [JSQAppConfig sharedInstance];
+    config.isAgency = self.isAgency;
+    self.view.backgroundColor = config.appBgColor;
+    self.collectionView.backgroundColor = config.appBgColor;
+    //    self.lblName.textColor = config.profileUserNameColor;
+    //    self.lblAge.textColor = config.profileUserLocationColor;
+    //    self.iconLocation.image = [self.iconLocation.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    //    self.iconLocation.tintColor = config.profileLocationIconColor;
+    //    self.lblLocationHeading.textColor = self.lblAboutHeading.textColor = config.profileCellHeadingColor;
+    //    self.lblLocation.textColor = config.profileLocationIconColor;
+    //    self.lblAbout.textColor = config.profileCellHeadingColor;
+    //    self.bgLocation.image = config.profileCellGradientBG;
+}
+
 #pragma mark - Initialization
 
 - (void)jsq_configureMessagesViewController
 {
-    self.view.backgroundColor = [UIColor whiteColor];
-
+    //self.view.backgroundColor = [UIColor whiteColor];
+    [self customizeAppearance];
+    
     self.jsq_isObserving = NO;
 
     self.toolbarHeightConstraint.constant = self.inputToolbar.preferredDefaultHeight;
@@ -591,6 +610,11 @@ JSQMessagesKeyboardControllerDelegate>
         if (avatarImageDataSource != nil) {
 
             UIImage *avatarImage = [avatarImageDataSource avatarImage];
+            cell.avatarImageView.contentMode = UIViewContentModeScaleAspectFit;
+            cell.avatarImageView.layer.cornerRadius = (isOutgoingMessage) ? collectionView.collectionViewLayout.outgoingAvatarViewSize.height/2 : collectionView.collectionViewLayout.incomingAvatarViewSize.height/2;
+            cell.avatarImageView.layer.masksToBounds = YES;
+            cell.avatarImageView.layer.borderWidth = 0;
+
             if (avatarImage == nil) {
                 cell.avatarImageView.image = [avatarImageDataSource avatarPlaceholderImage];
                 cell.avatarImageView.highlightedImage = nil;

@@ -39,6 +39,7 @@ typedef void (^JSQLocationMediaItemCompletionBlock)(void);
  *  The location for the media item. The default value is `nil`.
  */
 @property (copy, nonatomic) CLLocation *location;
+@property (strong, nonatomic) UIImage *cachedMapSnapshotImage;
 
 /**
  *  The coordinate of the location property.
@@ -69,7 +70,7 @@ typedef void (^JSQLocationMediaItemCompletionBlock)(void);
  *  @param location   The location for the media item.
  *  @param completion The block to call after the map view snapshot for the given location has been created.
  */
-- (void)setLocation:(CLLocation *)location withCompletionHandler:(JSQLocationMediaItemCompletionBlock)completion;
+//- (void)setLocation:(CLLocation *)location withCompletionHandler:(JSQLocationMediaItemCompletionBlock)completion;
 
 /**
  *  Sets the specified location for the location media item and immediately begins creating
@@ -81,6 +82,6 @@ typedef void (^JSQLocationMediaItemCompletionBlock)(void);
  *  @param region     The map region that you want to capture.
  *  @param completion The block to call after the map view snapshot for the given location has been created.
  */
-- (void)setLocation:(CLLocation *)location
-             region:(MKCoordinateRegion)region withCompletionHandler:(JSQLocationMediaItemCompletionBlock)completion;
+//- (void)setLocation:(CLLocation *)location
+//             region:(MKCoordinateRegion)region withCompletionHandler:(JSQLocationMediaItemCompletionBlock)completion;
 @end

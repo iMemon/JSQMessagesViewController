@@ -38,6 +38,8 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  *  Returns the text view in which the user composes a message.
  */
 @property (weak, nonatomic, readonly) JSQMessagesComposerTextView *textView;
+@property (weak, nonatomic, readonly) IBOutlet UIToolbar *bottomToolBar;
+@property (weak, nonatomic) IBOutlet UILabel *lblMessageSelfdestruct;
 
 /**
  *  A custom button item displayed on the left of the toolbar content view.
@@ -112,7 +114,8 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
 @property (weak, nonatomic, readonly) UIView *rightBarButtonContainerView;
 
 #pragma mark - Class methods
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintBottomToolBarHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextViewBottmSpace;
 /**
  *  Returns the `UINib` object initialized for a `JSQMessagesToolbarContentView`.
  *

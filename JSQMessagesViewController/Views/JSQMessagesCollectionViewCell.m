@@ -109,7 +109,10 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
-    self.backgroundColor = [UIColor whiteColor];
+    //Ahsan add this code to show background color.
+    self.backgroundColor = [UIColor clearColor];
+
+//    self.backgroundColor = [UIColor whiteColor];
 
     self.cellTopLabelHeightConstraint.constant = 0.0f;
     self.messageBubbleTopLabelHeightConstraint.constant = 0.0f;
